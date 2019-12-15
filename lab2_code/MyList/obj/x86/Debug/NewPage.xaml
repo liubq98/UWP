@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="MyList.NewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyList"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <StackPanel>
+            <Grid>
+                
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/bg.jpg" Stretch="Fill" />
+                </Grid.Background>
+                
+            <Grid Margin="30,30,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Edit Todo Item" FontSize="40"/>
+            </Grid>
+
+            <Grid Margin="30">
+
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                    <Image x:ConnectionId='1' Grid.Column="1" Grid.Row="0" x:Name="picture"  Stretch="Fill" Source="Assets/candy.jpg" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="{Binding Value, ElementName=slider}" ScaleY="{Binding Value, ElementName=slider}" />
+                        </Image.RenderTransform>
+                    </Image>
+                    <Slider x:ConnectionId='2' Grid.Column="1" Grid.Row="1" x:Name="slider" Height="20" Width="350" Minimum="0.5" Maximum="1.0" StepFrequency="0.1" />
+
+                <AppBarButton x:ConnectionId='3' Grid.Column="1" Grid.Row="2" Icon="Pictures" Label="select"                       HorizontalAlignment="Right"/>
+
+                <TextBox x:ConnectionId='4' Grid.Column="1" Grid.Row="4" x:Name="title" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="300"/>
+                <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Text="Title" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" Width="50" FontSize="20"/>
+                <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Text="Detail" TextWrapping="Wrap" VerticalAlignment="Center" Height="41" Width="89" FontSize="20"/>
+                <TextBox x:ConnectionId='5' Grid.Column="1" Grid.Row="6" x:Name="detail" HorizontalAlignment="Left" VerticalAlignment="Center" Height="80" Width="300"/>
+                <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Text="Due Date" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="20"/>
+                <Button x:ConnectionId='6' Grid.Column="1" Grid.Row="9" x:Name="Create" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="70"                       />
+                <Button x:ConnectionId='7' Grid.Column="1" Grid.Row="9" x:Name="Cancel" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Center" Height="30" Width="70"                       />
+                <DatePicker x:ConnectionId='8' Grid.Column="1" Grid.Row="8" x:Name="date" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            </Grid>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:ConnectionId='9' x:Name="DeleteAppBarButton" Icon="Delete" Label="Delete"                                  Visibility="Collapsed"/>
+            
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+
